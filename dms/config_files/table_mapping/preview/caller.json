@@ -1,0 +1,1008 @@
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "2",
+            "rule-name": "2",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "jrnl_timestamp"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "3",
+            "rule-name": "3",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "jrnl_jsn"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "4",
+            "rule-name": "4",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "jrnl_prog_name"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "5",
+            "rule-name": "5",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "jrnl_userid"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "6",
+            "rule-name": "6",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "calc_dup_seq"
+            },
+            "value": "DUP_CALCN_SEQ"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "10",
+            "rule-name": "10",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "p_k"
+            },
+            "value": "CALLER_ID"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "11",
+            "rule-name": "11",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "PHN_NBR",
+            "expression": "trim(ifnull($cust_phone_area_code,' '))||trim(ifnull($cust_phone_exch,' '))||trim(ifnull($cust_phone_extn,' '))",
+            "data-type": {
+                "type": "string",
+                "length": 20
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "12",
+            "rule-name": "12",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "cust_phone_area_code"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "13",
+            "rule-name": "13",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "cust_phone_exch"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "14",
+            "rule-name": "14",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "cust_phone_extn"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "15",
+            "rule-name": "15",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "CUST_CTRY_CD",
+            "expression": "trim($cust_ctry_code)",
+            "data-type": {
+                "type": "string",
+                "length": 5
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "500",
+            "rule-name": "500",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "cust_ctry_code"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "16",
+            "rule-name": "16",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "NBR_CUST_PHN_EXTN",
+            "expression": "trim($nbr_cust_phone_extn)",
+            "data-type": {
+                "type": "string",
+                "length": 5
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "17",
+            "rule-name": "17",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "nbr_cust_phone_extn"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "18",
+            "rule-name": "18",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "CTAC_TITL",
+            "expression": "trim($contact_title)",
+            "data-type": {
+                "type": "string",
+                "length": 3
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "19",
+            "rule-name": "19",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "contact_title"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "20",
+            "rule-name": "20",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "LAST_NM",
+            "expression": "trim($last_name)",
+            "data-type": {
+                "type": "string",
+                "length": 20
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "21",
+            "rule-name": "21",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "last_name"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "22",
+            "rule-name": "22",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "FIRST_NM",
+            "expression": "trim($first_name)",
+            "data-type": {
+                "type": "string",
+                "length": 15
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "23",
+            "rule-name": "23",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "first_name"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "24",
+            "rule-name": "24",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "AREA_FAX_CD",
+            "expression": "trim($cust_fax_area_code)",
+            "data-type": {
+                "type": "string",
+                "length": 3
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "25",
+            "rule-name": "25",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "cust_fax_area_code"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "26",
+            "rule-name": "26",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "FAX_PHN_EXCH",
+            "expression": "trim($cust_fax_phone_exch)",
+            "data-type": {
+                "type": "string",
+                "length": 3
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "27",
+            "rule-name": "27",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "cust_fax_phone_exch"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "28",
+            "rule-name": "28",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "FAX_PHN_EXTN",
+            "expression": "trim($cust_fax_phone_extn)",
+            "data-type": {
+                "type": "string",
+                "length": 4
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "29",
+            "rule-name": "29",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "cust_fax_phone_extn"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "30",
+            "rule-name": "30",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "CTRY_FAX_CD",
+            "expression": "trim($cust_fax_ctry_code)",
+            "data-type": {
+                "type": "string",
+                "length": 5
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "31",
+            "rule-name": "31",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "cust_fax_ctry_code"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "32",
+            "rule-name": "32",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "date_entry_creatd"
+            },
+            "value": "DT_ETRY_CREA"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "33",
+            "rule-name": "33",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "date_entry_updtd"
+            },
+            "value": "DT_ETRY_UPDT"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "34",
+            "rule-name": "34",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "ANLT",
+            "expression": "trim($analyst)",
+            "data-type": {
+                "type": "string",
+                "length": 8
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "35",
+            "rule-name": "35",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "analyst"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "36",
+            "rule-name": "36",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "CR_ACCT_NBR",
+            "expression": "trim($nbr_credit_acct)",
+            "data-type": {
+                "type": "string",
+                "length": 20
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "37",
+            "rule-name": "37",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "nbr_credit_acct"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "38",
+            "rule-name": "38",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "CRD_TYPE_CD",
+            "expression": "trim($code_card_type)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "39",
+            "rule-name": "39",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "code_card_type"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "40",
+            "rule-name": "40",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "TKN_ID_CD",
+            "expression": "trim($code_token_id)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "41",
+            "rule-name": "41",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "code_token_id"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "42",
+            "rule-name": "42",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "date_credit_acct_exp"
+            },
+            "value": "CR_ACCT_EXPRY_DT"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "43",
+            "rule-name": "43",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "CR_PMT_CD",
+            "expression": "trim($code_credit_pymt)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "44",
+            "rule-name": "44",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "code_credit_pymt"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "45",
+            "rule-name": "45",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "EMAIL_ADDR",
+            "expression": "trim($addr_email)",
+            "data-type": {
+                "type": "string",
+                "length": 80
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "46",
+            "rule-name": "46",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "addr_email"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "47",
+            "rule-name": "47",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "SHIPT_EMAIL_IND",
+            "expression": "trim($ind_shpmt_email)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "48",
+            "rule-name": "48",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "ind_shpmt_email"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "49",
+            "rule-name": "49",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "INVC_EMAIL_IND",
+            "expression": "trim($ind_invc_email)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "50",
+            "rule-name": "50",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "ind_invc_email"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "51",
+            "rule-name": "51",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "SHIPT_BO_EMAIL_IND",
+            "expression": "trim($ind_shpmt_bo_email)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "52",
+            "rule-name": "52",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "ind_shpmt_bo_email"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "53",
+            "rule-name": "53",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "CUST_NOTFN_PFRC_CD",
+            "expression": "trim($code_cust_notify_pref)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "54",
+            "rule-name": "54",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "code_cust_notify_pref"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "55",
+            "rule-name": "55",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "ORD_EMAIL_ACKT_IND",
+            "expression": "trim($ind_ordr_email_ack)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "56",
+            "rule-name": "56",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "ind_ordr_email_ack"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "57",
+            "rule-name": "57",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "LIC_NBR_ID",
+            "expression": "trim($id_license_nbr)",
+            "data-type": {
+                "type": "string",
+                "length": 15
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "58",
+            "rule-name": "58",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "id_license_nbr"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "59",
+            "rule-name": "59",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "LIC_ST_ID",
+            "expression": "trim($id_license_state)",
+            "data-type": {
+                "type": "string",
+                "length": 2
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "60",
+            "rule-name": "60",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "id_license_state"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "61",
+            "rule-name": "61",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "date_license_exp"
+            },
+            "value": "LIC_DT_EXPRY"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "62",
+            "rule-name": "62",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "CALLR_VALD_ID",
+            "expression": "trim($caller_val_ind)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "63",
+            "rule-name": "63",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "caller_val_ind"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "64",
+            "rule-name": "64",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "CALLR_EXMT_ID",
+            "expression": "trim($caller_exempt_ind)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "65",
+            "rule-name": "65",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller",
+                "column-name": "caller_exempt_ind"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "66",
+            "rule-name": "66",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "rule-action": "add-column",
+            "value": "operation",
+            "expression": "operation_indicator('D', 'U', 'I')",
+            "data-type": {
+                "type": "string",
+                "length": 50
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "67",
+            "rule-name": "67",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "crea_dt",
+            "expression": "datetime ()",
+            "data-type": {
+                "type": "datetime",
+                "precision": 6
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "68",
+            "rule-name": "68",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "updt_dt",
+            "expression": "CASE WHEN operation_indicator('D', 'U', 'I')='U' or operation_indicator('D', 'U', 'I')='D' or operation_indicator('D', 'U', 'I')='I' THEN datetime () END",
+            "data-type": {
+                "type": "datetime",
+                "precision": 6
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "69",
+            "rule-name": "69",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "crea_by",
+            "expression": "\"ODS\"",
+            "data-type": {
+                "type": "string",
+                "length": 30
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "70",
+            "rule-name": "70",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "updt_by",
+            "expression": "\"ODS\"",
+            "data-type": {
+                "type": "string",
+                "length": 100
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "71",
+            "rule-name": "71",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "data_src",
+            "expression": "\"IDMS\"",
+            "data-type": {
+                "type": "string",
+                "length": 10
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "72",
+            "rule-name": "72",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "caller"
+            },
+            "value": "ctry_cd",
+            "expression": "\"USA\"",
+            "data-type": {
+                "type": "string",
+                "length": 10
+            }
+        }
+    ]
+}

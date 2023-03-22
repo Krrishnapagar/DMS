@@ -1,0 +1,759 @@
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "2",
+            "rule-name": "2",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "jrnl_timestamp"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "3",
+            "rule-name": "3",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "jrnl_jsn"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "4",
+            "rule-name": "4",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "jrnl_prog_name"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "500",
+            "rule-name": "500",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "jrnl_userid"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "5",
+            "rule-name": "5",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "p_k"
+            },
+            "value": "ADDR_ID"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "6",
+            "rule-name": "6",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "nk_custacct_addr"
+            },
+            "value": "CUST_ACCT_ADDR_NK"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "7",
+            "rule-name": "7",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "nk_recommended_addr"
+            },
+            "value": "RCMD_ADDR_NK"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "8",
+            "rule-name": "8",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "nk_review_address"
+            },
+            "value": "RVW_ADDR_NK"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "9",
+            "rule-name": "9",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "fk_custacct_addr"
+            },
+            "value": "CUST_ACCT_ADDR"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "10",
+            "rule-name": "10",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "fk_review_address"
+            },
+            "value": "RVW_ADDR"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "11",
+            "rule-name": "11",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "id_cust_addr_key"
+            },
+            "value": "ADDR_KEY"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "12",
+            "rule-name": "12",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "MODF_CUST_ADDR",
+            "expression": "trim($ind_cust_addr_modify)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "13",
+            "rule-name": "13",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "ind_cust_addr_modify"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "14",
+            "rule-name": "14",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ADDR_LN_2",
+            "expression": "trim($addr_cust_line_2)",
+            "data-type": {
+                "type": "string",
+                "length": 25
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "15",
+            "rule-name": "15",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "addr_cust_line_2"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "16",
+            "rule-name": "16",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ADDR_LN_3",
+            "expression": "trim($addr_cust_line_3)",
+            "data-type": {
+                "type": "string",
+                "length": 25
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "17",
+            "rule-name": "17",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "addr_cust_line_3"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "18",
+            "rule-name": "18",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ADDR_LN_4",
+            "expression": "trim($addr_cust_line_4)",
+            "data-type": {
+                "type": "string",
+                "length": 25
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "19",
+            "rule-name": "19",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "addr_cust_line_4"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "20",
+            "rule-name": "20",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "CITY",
+            "expression": "trim($addr_cust_city)",
+            "data-type": {
+                "type": "string",
+                "length": 16
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "21",
+            "rule-name": "21",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "addr_cust_city"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "22",
+            "rule-name": "22",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "STATE",
+            "expression": "trim($abbr_cust_state)",
+            "data-type": {
+                "type": "string",
+                "length": 2
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "23",
+            "rule-name": "23",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "abbr_cust_state"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "24",
+            "rule-name": "24",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ZIP_CD_FRST_5",
+            "expression": "trim($code_cust_zip_first5)",
+            "data-type": {
+                "type": "string",
+                "length": 5
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "25",
+            "rule-name": "25",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "code_cust_zip_first5"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "26",
+            "rule-name": "26",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ZIP_CD_LAST_4",
+            "expression": "trim($code_cust_zip_last4)",
+            "data-type": {
+                "type": "string",
+                "length": 4
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "27",
+            "rule-name": "27",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "code_cust_zip_last4"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "28",
+            "rule-name": "28",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "date_entry_creatd"
+            },
+            "value": "DT_ETRY_CREA"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "29",
+            "rule-name": "29",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "date_entry_updtd"
+            },
+            "value": "DT_ETRY_UPDT"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "30",
+            "rule-name": "30",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ANLT",
+            "expression": "trim($analyst)",
+            "data-type": {
+                "type": "string",
+                "length": 8
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "31",
+            "rule-name": "31",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "analyst"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "32",
+            "rule-name": "32",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "date_addr_review_xmit"
+            },
+            "value": "DT_ADDR_RVW_XMIT"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "33",
+            "rule-name": "33",
+            "rule-action": "rename",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "date_addr_review_rtrn"
+            },
+            "value": "DT_ADDR_RVW_RTN"
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "34",
+            "rule-name": "34",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ANLT_ADDR_RVW",
+            "expression": "trim($analyst_addr_review)",
+            "data-type": {
+                "type": "string",
+                "length": 8
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "35",
+            "rule-name": "35",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "analyst_addr_review"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "36",
+            "rule-name": "36",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ADDR_CLAS_CD",
+            "expression": "trim($code_addr_class)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "37",
+            "rule-name": "37",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "code_addr_class"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "38",
+            "rule-name": "38",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ADDR_AUD_ERR_CD_2",
+            "expression": "trim($code_addr_audit_err2)",
+            "data-type": {
+                "type": "string",
+                "length": 3
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "39",
+            "rule-name": "39",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "code_addr_audit_err2"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "40",
+            "rule-name": "40",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "AUD_ADDR_OVRD_IND",
+            "expression": "trim($ind_audit_addr_ovrride)",
+            "data-type": {
+                "type": "string",
+                "length": 1
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "41",
+            "rule-name": "41",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "ind_audit_addr_ovrride"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "42",
+            "rule-name": "42",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "CUST_ADDR_CASS_ID_1",
+            "expression": "trim($id_cust_addr_cass1)",
+            "data-type": {
+                "type": "string",
+                "length": 10
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "43",
+            "rule-name": "43",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "id_cust_addr_cass1"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "44",
+            "rule-name": "44",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "CUST_ADDR_CASS_ID_2",
+            "expression": "trim($id_cust_addr_cass2)",
+            "data-type": {
+                "type": "string",
+                "length": 10
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "45",
+            "rule-name": "45",
+            "rule-action": "remove-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr",
+                "column-name": "id_cust_addr_cass2"
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "46",
+            "rule-name": "46",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "rule-action": "add-column",
+            "value": "operation",
+            "expression": "operation_indicator('D', 'U', 'I')",
+            "data-type": {
+                "type": "string",
+                "length": 50
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "47",
+            "rule-name": "47",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "crea_dt",
+            "expression": "datetime ()",
+            "data-type": {
+                "type": "datetime",
+                "precision": 6
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "48",
+            "rule-name": "48",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "updt_dt",
+            "expression": "CASE WHEN operation_indicator('D', 'U', 'I')='U' or operation_indicator('D', 'U', 'I')='D' or operation_indicator('D', 'U', 'I')='I' THEN datetime () END",
+            "data-type": {
+                "type": "datetime",
+                "precision": 6
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "49",
+            "rule-name": "49",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "crea_by",
+            "expression": "\"ODS\"",
+            "data-type": {
+                "type": "string",
+                "length": 30
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "50",
+            "rule-name": "50",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "updt_by",
+            "expression": "\"ODS\"",
+            "data-type": {
+                "type": "string",
+                "length": 100
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "51",
+            "rule-name": "51",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "data_src",
+            "expression": "\"IDMS\"",
+            "data-type": {
+                "type": "string",
+                "length": 10
+            }
+        },
+        {
+            "rule-type": "transformation",
+            "rule-id": "52",
+            "rule-name": "52",
+            "rule-action": "add-column",
+            "rule-target": "column",
+            "object-locator": {
+                "schema-name": "public",
+                "table-name": "addr"
+            },
+            "value": "ctry_cd",
+            "expression": "\"USA\"",
+            "data-type": {
+                "type": "string",
+                "length": 10
+            }
+        }
+    ]
+}
